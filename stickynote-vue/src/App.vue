@@ -5,7 +5,44 @@
         <h1 class="header-title">Memo</h1>
         <button class="header-button">+</button>
       </header>
-      <div>[card]</div>
+      <div class="card-container">
+        <div class="card">
+          <p class="card-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
+            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
+            Odio, pariatur asperiores!
+          </p>
+          <p class="card-date">12/12/2023</p>
+        </div>
+        <div class="card">
+          <p class="card-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
+            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
+            Odio, pariatur asperiores!
+          </p>
+          <p class="card-date">12/12/2023</p>
+        </div>
+        <div class="card">
+          <p class="card-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
+            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
+            Odio, pariatur asperiores!
+          </p>
+          <p class="card-date">12/12/2023</p>
+        </div>
+        <div class="card">
+          <p class="card-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
+            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
+            Odio, pariatur asperiores!
+          </p>
+          <p class="card-date">12/12/2023</p>
+        </div>
+      </div>
     </div>
   </main>
 </template>
@@ -44,5 +81,23 @@ header {
   border-radius: 100%;
   background-color: #495a7d;
   color: white;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 255px;
+  height: 255px;
+  padding: 10px;
+  background-color: #ffa6c1;
+  margin-bottom: 20px;
+  border-radius: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>

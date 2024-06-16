@@ -30,8 +30,9 @@ function getRandomColor() {
       </header>
       <div class="card-container">
         <div
-          v-for="memo in memos"
+          v-for="(memo, index) in memos"
           class="card"
+          :key="index"
           :style="{ backgroundColor: memo.backgroundColor }"
         >
           <p class="card-content">{{ memo.memo }}</p>

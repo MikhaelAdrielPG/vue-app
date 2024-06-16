@@ -3,8 +3,13 @@ import { ref } from "vue";
 const showForm = ref(false);
 const newMemo = ref("");
 const memos = ref([]);
+const errorMessage = ref("");
 
 function addMemo() {
+  if (!newMemo.value) {
+    errorMessage.value = "Please enter a memo";
+    return;
+  }
   memos.value.push({
     id: Date.now(),
     memo: newMemo.value,
@@ -22,7 +27,6 @@ function getRandomColor() {
 
 <template>
   <main>
-    {{ memos }}
     <div class="container">
       <header>
         <h1 class="header-title">Memo</h1>
@@ -45,7 +49,7 @@ function getRandomColor() {
         <button @click="showForm = false" class="form-close-btn">
           &times;
         </button>
-        {{ newMemo }}
+        <p v-if="errorMessage" class="form-error">{{ errorMessage }}</p>
         <textarea
           v-model="newMemo"
           name="memo"
@@ -158,5 +162,9 @@ header {
   border: none;
   font-size: 30px;
   cursor: pointer;
+}
+
+.form-error {
+  color: red;
 }
 </style>

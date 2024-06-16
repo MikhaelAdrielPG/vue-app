@@ -1,3 +1,10 @@
+<script setup>
+import { ref } from "vue";
+import srcQuiz from "./data/quizes.json";
+
+const quizes = ref(srcQuiz);
+</script>
+
 <template>
   <main>
     <header>
@@ -5,14 +12,11 @@
       <input type="text" id="search-input" />
     </header>
     <section id="quiz-container">
-      <div class="card">
-        <img
-          src="https://plus.unsplash.com/premium_photo-1678565999588-08fdd0b1410b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D"
-          alt=""
-        />
+      <div v-for="quiz in quizes" :key="quiz.id" class="card">
+        <img :src="quiz.img" :alt="quiz.title" />
         <div class="card-body">
-          <h2>Programming</h2>
-          <p>2 Questions</p>
+          <h2>{{ quiz.title }}</h2>
+          <p>{{ quiz.questions.length }} Questions</p>
         </div>
       </div>
     </section>

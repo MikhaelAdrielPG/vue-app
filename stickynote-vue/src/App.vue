@@ -23,6 +23,10 @@ function addMemo() {
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+
+function deleteMemo(id) {
+  memos.value = memos.value.filter((memo) => memo.id !== id);
+}
 </script>
 
 <template>
@@ -40,7 +44,10 @@ function getRandomColor() {
           :style="{ backgroundColor: memo.backgroundColor }"
         >
           <p class="card-content">{{ memo.memo }}</p>
-          <p class="card-date">{{ memo.date }}</p>
+          <div class="card-footer">
+            <p class="card-date">{{ memo.date }}</p>
+            <button @click="deleteMemo(memo.id)" class="card-button">x</button>
+          </div>
         </div>
       </div>
     </div>
@@ -162,6 +169,12 @@ header {
   border: none;
   font-size: 30px;
   cursor: pointer;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-error {

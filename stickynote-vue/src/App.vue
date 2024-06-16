@@ -29,41 +29,13 @@ function getRandomColor() {
         <button @click="showForm = true" class="header-button">+</button>
       </header>
       <div class="card-container">
-        <div class="card">
-          <p class="card-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
-            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
-            Odio, pariatur asperiores!
-          </p>
-          <p class="card-date">12/12/2023</p>
-        </div>
-        <div class="card">
-          <p class="card-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
-            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
-            Odio, pariatur asperiores!
-          </p>
-          <p class="card-date">12/12/2023</p>
-        </div>
-        <div class="card">
-          <p class="card-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
-            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
-            Odio, pariatur asperiores!
-          </p>
-          <p class="card-date">12/12/2023</p>
-        </div>
-        <div class="card">
-          <p class="card-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-            tempore sequi, quae cupiditate saepe, eveniet voluptates excepturi
-            esse, eum qui minima omnis officiis quis quasi debitis blanditiis.
-            Odio, pariatur asperiores!
-          </p>
-          <p class="card-date">12/12/2023</p>
+        <div
+          v-for="memo in memos"
+          class="card"
+          :style="{ backgroundColor: memo.backgroundColor }"
+        >
+          <p class="card-content">{{ memo.memo }}</p>
+          <p class="card-date">{{ memo.date }}</p>
         </div>
       </div>
     </div>

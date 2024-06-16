@@ -1,15 +1,22 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import srcQuiz from "./data/quizes.json";
 
 const quizes = ref(srcQuiz);
+const search = ref("");
+
+watch(search, () => {
+  quizes.value = srcQuiz.filter((quiz) => {
+    return quiz.title.toLowerCase().includes(search.value.toLowerCase());
+  });
+});
 </script>
 
 <template>
   <main>
     <header>
       <h1 id="title">QuizVue</h1>
-      <input type="text" id="search-input" />
+      <input v-model.trim="search" type="text" id="search-input" />
     </header>
     <section id="quiz-container">
       <div v-for="quiz in quizes" :key="quiz.id" class="card">

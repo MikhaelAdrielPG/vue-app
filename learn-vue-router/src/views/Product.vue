@@ -14,4 +14,5 @@ const product = products.find(
     <h2>{{ product.name }} - {{ product.price }}</h2>
     <p>Year: {{ product.year }}</p>
   </div>
+  <RouterView />
 </template>
